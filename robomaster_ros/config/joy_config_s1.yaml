@@ -1,124 +1,170 @@
-# Logitech F710 wireless controller
-# Deadman (enable) button: Right Trigger
-# D<>X button (located on the back panel) must be set to D
+# DualShock / DualShock 4 controller
+#
+# axes:
+#   axes[0] = left stick horizontal
+#   axes[1] = left stick vertical
+#   axes[2] = L2 analog
+#   axes[3] = right stick horizontal
+#   axes[4] = right stick vertical
+#   axes[5] = R2 analog
+#   axes[6] = D-pad horizontal
+#   axes[7] = D-pad vertical
+#
+# buttons:
+#   buttons[0] = cross
+#   buttons[1] = circle
+#   buttons[2] = triangle
+#   buttons[3] = square
+#   buttons[4] = L1
+#   buttons[5] = R1
+#   buttons[6] = L2
+#   buttons[7] = R2
+#   buttons[8] = SHARE
+#   buttons[9] = OPTIONS
+
 /**:
   ros__parameters:
     piloting:
       type: topic
       interface_type: "geometry_msgs/msg/Twist"
       topic_name: cmd_vel
-      deadman_buttons: [7]  # RT
+      deadman_buttons: [7]  # R2
       axis_mappings:
         linear-x:
-          axis: 3
+          axis: 1
           scale: 1.5
           offset: 0
         linear-y:
-          axis: 2
+          axis: 0
           scale: 1.5
           offset: 0
         angular-z:
-          axis: 0
-          scale: 3
+          axis: 3
+          scale: 9.0
           offset: 0
+
     gimbal:
       type: topic
       interface_type: "robomaster_msgs/msg/GimbalCommand"
       topic_name: cmd_gimbal
-      deadman_buttons: [6]  # RT
+      deadman_buttons: [6]  # L2
       axis_mappings:
         yaw_speed:
-          axis: 0
-          scale: -3
+          axis: 3
+          scale: -100.0
           offset: 0
         pitch_speed:
-          axis: 1
-          scale: -3
+          axis: 4
+          scale: -9.0
           offset: 0
+
     yellow:
       type: topic
       interface_type: "robomaster_msgs/msg/LEDEffect"
       topic_name: leds/effect
-      deadman_buttons: [7, 3]  # RT
+      deadman_buttons: [7, 2]  # R2 + triangle
       message_value:
         color-r:
           value: 1.0
         color-g:
           value: 1.0
+
     blue:
       type: topic
       interface_type: "robomaster_msgs/msg/LEDEffect"
       topic_name: leds/effect
-      deadman_buttons: [7, 0]  # RT
+      deadman_buttons: [7, 3]  # R2 + square
       message_value:
         color-b:
           value: 1.0
+
     green:
       type: topic
       interface_type: "robomaster_msgs/msg/LEDEffect"
       topic_name: leds/effect
-      deadman_buttons: [7, 1]  # RT
+      deadman_buttons: [7, 0]  # R2 + cross
       message_value:
         color-g:
           value: 1.0
+
     black:
       type: topic
       interface_type: "robomaster_msgs/msg/LEDEffect"
       topic_name: leds/effect
-      deadman_buttons: [7, 5]  # RT
+      deadman_buttons: [7, 9]  # R2 + OPTIONS
       message_value:
+        color-r:
+          value: 0.0
         color-g:
           value: 0.0
+        color-b:
+          value: 0.0
+
     red:
       type: topic
       interface_type: "robomaster_msgs/msg/LEDEffect"
       topic_name: leds/effect
-      deadman_buttons: [7, 2]  # RT
+      deadman_buttons: [7, 1]  # R2 + circle
       message_value:
         color-r:
           value: 1.0
+
     blaster-on:
       type: topic
       interface_type: "robomaster_msgs/msg/BlasterLED"
       topic_name: blaster_led
-      deadman_buttons: [6, 1]  # RT
+      deadman_buttons: [6, 0]  # L2 + cross
       message_value:
         brightness:
           value: 1.0
+
     blaster-off:
       type: topic
       interface_type: "robomaster_msgs/msg/BlasterLED"
       topic_name: blaster_led
-      deadman_buttons: [6, 0]  # RT
+      deadman_buttons: [6, 3]  # L2 + square
       message_value:
         brightness:
           value: 0.0
+
     mode-chassis:
       type: topic
       interface_type: "robomaster_msgs/msg/Mode"
       topic_name: mode
-      deadman_buttons: [5]  # RT
+      deadman_buttons: [5]  # R1
       message_value:
         mode:
           value: 2
+
     lock-gimbal:
       type: topic
       interface_type: "std_msgs/msg/Bool"
       topic_name: lock
-      deadman_buttons: [7, 5]  # RT
+      deadman_buttons: [7, 5]  # R2 + R1
       message_value:
         data:
           value: true
+
     mode-free:
       type: topic
       interface_type: "robomaster_msgs/msg/Mode"
       topic_name: mode
-      deadman_buttons: [4]  # RT
+      deadman_buttons: [4]  # L1
       message_value:
         mode:
           value: 0
+
+    mode-gimbal:
+      type: topic
+      interface_type: "robomaster_msgs/msg/Mode"
+      topic_name: mode
+      deadman_buttons: [6, 4]  # L2 + L1
+      message_value:
+        mode:
+          value: 1
+
     recenter:
       type: action
       interface_type: robomaster_msgs/action/RecenterGimbal
       action_name: recenter_gimbal
-      buttons: [8]
+      buttons: [8]  # SHARE
