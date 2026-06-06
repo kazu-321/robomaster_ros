@@ -50,6 +50,15 @@ which fixes some issues of the upstream repo.
 
 #. Install the RoboMaster-SDK
 
+   - For Python < 3.11:
+
+   .. code-block:: console
+
+      python3 -m pip install git+https://github.com/jeguzzi/RoboMaster-SDK.git
+      python3 -m pip install git+https://github.com/jeguzzi/RoboMaster-SDK.git#"egg=rm_libmedia_codec&subdirectory=lib/libmedia_codec"
+
+   - For Python >= 3.11:
+
    .. code-block:: console
 
       python3 -m pip install git+https://github.com/jeguzzi/RoboMaster-SDK.git
