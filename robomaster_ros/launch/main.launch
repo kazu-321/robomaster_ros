@@ -79,7 +79,7 @@
   <arg name="chassis_rate" default="10" description="Chassis update rate: one of 0, 1, 5, 10, 20, 50. See :ros:param:`chassis.rate`"/>
   <arg name="chassis_status_rate" default="1" description="Chassis status update rate: one of 0, 1, 5, 10, 20, 50. See :ros:param:`chassis.rate`"/>
   <arg name="chassis_timeout" default="0.0" description="Chassis control timeout in seconds. See :ros:param:`chassis.timeout`"/>
-  <arg name="chassis_twist_to_wheel_speeds" default="false" description="Enables `cmd_vel` translation to wheel speeds. See :ros:param:`chassis.twist_to_wheel_speeds`"/>
+  <arg name="chassis_twist_to_wheel_speeds" default="true" description="Enables `cmd_vel` translation to wheel speeds. See :ros:param:`chassis.twist_to_wheel_speeds`"/>
   <arg name="chassis_force_level" default="false" description="Force the state estimation to stay horizontal. See :ros:param:`chassis.force_level`"/>
   <arg name="chassis_odom_twist_in_odom" default="false" description="Select odom frame for :ros:pub:`odom` twist component. See :ros:param:`chassis.odom_twist_in_odom`"/>
   <arg name="chassis_imu_includes_orientation" default="true" description="Include orientation in `imu`. See :ros:param:`chassis.imu_includes_orientation`"/>
@@ -92,7 +92,7 @@
   <!-- [0, 1, 5, 10, 20, 50] -->
   <arg name="gimbal_rate" default="10" description="Update rate for gimbal state"/>
   <!-- 0: FREE, 1: GIMBAL_LEAD, 2: CHASSIS_LEAD -->
-  <arg name="gimbal_mode" default="2" description="Gimbal-chassis coontrol coupling"/>
+  <arg name="gimbal_mode" default="0" description="Gimbal-chassis coontrol coupling"/>
 
 
   <!-- <let name="default_mode" value="$(eval '2 if __import__(\'importlib.util\').util.find_spec(\'rclpy.event_handler\') else 0')"/> -->

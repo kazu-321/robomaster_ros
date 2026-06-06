@@ -47,11 +47,12 @@
       type: topic
       interface_type: "robomaster_msgs/msg/GimbalCommand"
       topic_name: cmd_gimbal
-      deadman_buttons: [6]  # L2
+      # deadman_buttons: [6]  # L2
+      deadman_buttons: [7]  # R2
       axis_mappings:
         yaw_speed:
           axis: 3
-          scale: -100.0
+          scale: -9.0
           offset: 0
         pitch_speed:
           axis: 4
@@ -94,11 +95,11 @@
       deadman_buttons: [7, 9]  # R2 + OPTIONS
       message_value:
         color-r:
-          value: 0.0
+          value: 0.1
         color-g:
-          value: 0.0
+          value: 0.2
         color-b:
-          value: 0.0
+          value: 1.0
 
     red:
       type: topic
@@ -127,41 +128,41 @@
         brightness:
           value: 0.0
 
-    mode-chassis:
-      type: topic
-      interface_type: "robomaster_msgs/msg/Mode"
-      topic_name: mode
-      deadman_buttons: [5]  # R1
-      message_value:
-        mode:
-          value: 2
+    # mode-chassis:
+    #   type: topic
+    #   interface_type: "robomaster_msgs/msg/Mode"
+    #   topic_name: mode
+    #   deadman_buttons: [5]  # R1
+    #   message_value:
+    #     mode:
+    #       value: 2
 
-    lock-gimbal:
-      type: topic
-      interface_type: "std_msgs/msg/Bool"
-      topic_name: lock
-      deadman_buttons: [7, 5]  # R2 + R1
-      message_value:
-        data:
-          value: true
+    # lock-gimbal:
+    #   type: topic
+    #   interface_type: "std_msgs/msg/Bool"
+    #   topic_name: lock
+    #   deadman_buttons: [7, 5]  # R2 + R1
+    #   message_value:
+    #     data:
+    #       value: true
 
-    mode-free:
-      type: topic
-      interface_type: "robomaster_msgs/msg/Mode"
-      topic_name: mode
-      deadman_buttons: [4]  # L1
-      message_value:
-        mode:
-          value: 0
+    # mode-free:
+    #   type: topic
+    #   interface_type: "robomaster_msgs/msg/Mode"
+    #   topic_name: mode
+    #   deadman_buttons: [4]  # L1
+    #   message_value:
+    #     mode:
+    #       value: 0
 
-    mode-gimbal:
-      type: topic
-      interface_type: "robomaster_msgs/msg/Mode"
-      topic_name: mode
-      deadman_buttons: [6, 4]  # L2 + L1
-      message_value:
-        mode:
-          value: 1
+    # mode-gimbal:
+    #   type: topic
+    #   interface_type: "robomaster_msgs/msg/Mode"
+    #   topic_name: mode
+    #   deadman_buttons: [6, 4]  # L2 + L1
+    #   message_value:
+    #     mode:
+    #       value: 1
 
     recenter:
       type: action
